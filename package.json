@@ -2,24 +2,27 @@
   "name": "hubot-uptimerobot",
   "description": "A hubot script to list/add monitors for the Uptime Robot service.",
   "version": "0.0.0",
-  "author": "Patrick Connolly <patrick@myplanetdigital.com>",
+  "author": "patcon@myplanetdigital",
   "license": "MIT",
-
-  "keywords": ["hubot","hubot-scripts","uptime","uptime-robot","uptimerobot"],
-
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "uptime",
+    "uptime-robot",
+    "uptimerobot"
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-example.git"
+    "url": "git://github.com/myplanetdigital/hubot-uptimerobot.git"
   },
-
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-example/issues"
+    "url": "https://github.com/myplanetdigital/hubot-uptimerobot/issues"
   },
-
   "dependencies": {
-    "coffee-script": "~1.6"
+    "coffee-script": "~1.6",
+    "array-query": "~0.1.0",
+    "uptime-robot": "0.0.1"
   },
-
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
@@ -30,9 +33,7 @@
     "matchdep": "~0.1.2",
     "grunt-contrib-watch": "~0.5.3"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "grunt test"
   }

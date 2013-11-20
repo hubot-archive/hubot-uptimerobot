@@ -2,9 +2,4 @@
 
 A hubot script to list/add monitors for the Uptime Robot service.
 
-## Commands
-
-```
-hubot hello
-hubot orly
-```
+See [`src/uptimerobot.coffee`](src/uptimerobot.coffee) for full documentation.
