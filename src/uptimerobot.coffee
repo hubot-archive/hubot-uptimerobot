@@ -7,7 +7,7 @@
 #
 # Commands:
 #   hubot uptime <filter> - Returns uptime for sites.
-#   hubot uptime add-check <http://example.com> - Adds a new uptime check.
+#   hubot uptime add-check <http://example.com> [as <friendlyname>]- Adds a new uptime check.
 #
 # Author:
 #   patcon@myplanetdigital
@@ -56,16 +56,18 @@ module.exports = (robot) ->
 
         msg.send "#{status.toUpperCase()} <- #{url} (#{uptime}% uptime)"
 
-  robot.respond /uptime add-check (\S+)( (.*))?$/i, (msg) ->
+  robot.respond /uptime add-check (\S+)( as (.*))?$/i, (msg) ->
     url = require('url').parse(msg.match[1])
-    name = msg.match[3] or url.href
+    friendlyName = msg.match[3] or url.href
 
+    # Check that url format is correct.
     monitorUrl = url.href if url.protocol
-    monitorFriendlyName = name
+    
+    # Create monitor
     msg.http("http://api.uptimerobot.com/newMonitor")
       .query({
         apiKey: apiKey
-        monitorFriendlyName: monitorFriendlyName
+        monitorFriendlyName: friendlyName
         monitorURL: monitorUrl
         monitorType: 1
         format: "json"
