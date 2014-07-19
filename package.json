@@ -1,7 +1,7 @@
 {
   "name": "hubot-uptimerobot",
   "description": "A hubot script to list/add monitors for the Uptime Robot service.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "patcon@myplanetdigital",
   "license": "MIT",
   "keywords": [
