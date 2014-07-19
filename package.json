@@ -13,10 +13,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/myplanetdigital/hubot-uptimerobot.git"
+    "url": "git://github.com/hubot-scripts/hubot-uptimerobot.git"
   },
   "bugs": {
-    "url": "https://github.com/myplanetdigital/hubot-uptimerobot/issues"
+    "url": "https://github.com/hubot-scripts/hubot-uptimerobot/issues"
   },
   "dependencies": {
     "coffee-script": "~1.6",
