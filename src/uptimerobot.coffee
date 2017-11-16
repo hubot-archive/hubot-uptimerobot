@@ -43,6 +43,7 @@ module.exports = (robot) ->
           .regex(new RegExp filter, 'i')
           .on res
 
+      response_array = {attachments: []};
       for monitor, i in monitors
         name   = monitor.friendlyname
         url    = monitor.url
@@ -53,8 +54,17 @@ module.exports = (robot) ->
           when "2" then "up"
           when "8" then "seems down"
           when "9" then "down"
+        response_array.attachments[i] = {
+          "fallback": "#{status.toUpperCase()} <- #{url} (#{uptime}% uptime)",
+          "color": if monitor.status == "2" then "good" else "danger",
+          "title": url,
+          "title_link": url,
+          "footer": "#{uptime}% uptime",
+          "fields": if monitor.status == "2" then [] else [{"title": "Status", "value": status, "short": true}]
+        }
+        
+      msg.send response_array
 
-        msg.send "#{status.toUpperCase()} <- #{url} (#{uptime}% uptime)"
 
   robot.respond /uptime add-check (\S+)( as (.*))?$/i, (msg) ->
     url = require('url').parse(msg.match[1])
@@ -62,9 +72,9 @@ module.exports = (robot) ->
 
     # Check that url format is correct.
     monitorUrl = url.href if url.protocol
-    
+
     # Create monitor
-    msg.http("http://api.uptimerobot.com/newMonitor")
+    msg.http("https://api.uptimerobot.com/newMonitor")
       .query({
         apiKey: apiKey
         monitorFriendlyName: friendlyName
