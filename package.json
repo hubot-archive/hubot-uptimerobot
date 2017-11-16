@@ -19,19 +19,19 @@
     "url": "https://github.com/hubot-scripts/hubot-uptimerobot/issues"
   },
   "dependencies": {
-    "coffee-script": "~1.6",
     "array-query": "~0.1.0",
-    "uptime-robot": "0.0.1"
+    "coffee-script": "~1.6",
+    "uptime-robot": "^1.3.0"
   },
   "devDependencies": {
-    "mocha": "*",
     "chai": "*",
-    "sinon-chai": "*",
-    "sinon": "*",
+    "grunt-contrib-watch": "~0.5.3",
     "grunt-mocha-test": "~0.7.0",
     "grunt-release": "~0.6.0",
     "matchdep": "~0.1.2",
-    "grunt-contrib-watch": "~0.5.3"
+    "mocha": "*",
+    "sinon": "*",
+    "sinon-chai": "*"
   },
   "main": "index.coffee",
   "scripts": {

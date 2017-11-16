@@ -20,7 +20,7 @@ module.exports = (robot) ->
   REGEX = ///
     uptime
     (       # 1)
-      \s*   #    whitespace
+      \s+   #    whitespace
       (.*)  # 2) filter
     )?
   ///i
@@ -64,7 +64,7 @@ module.exports = (robot) ->
     monitorUrl = url.href if url.protocol
 
     # Create monitor
-    msg.http("http://api.uptimerobot.com/newMonitor")
+    msg.http("https://api.uptimerobot.com/newMonitor")
       .query({
         apiKey: apiKey
         monitorFriendlyName: friendlyName
